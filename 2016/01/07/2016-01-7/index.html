@@ -6,25 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>日常 | 红色贪吃蛇</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mysql 同步， 参考文章 http://369369.blog.51cto.com/319630/790921
+  <meta name="description" content="mysql 同步，
+参考文章 http://369369.blog.51cto.com/319630/790921
+
  两台机器不能连接，去除掉 my.cnf 里面的bind_adress
- 在主服务器上 GRANT REPLICATION SLAVE ON . to ‘mysync’@’ip’ identified by ‘passwd’;
- slava 服务器上 change master to">
+ 在主服务器上
+GRANT REPLICATION SLAVE ON *.* to &amp;apos;mysync&amp;apos;@&amp;apos;ip&amp;apos; identified by &amp;apos;passwd&amp;ap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日常">
 <meta property="og:url" content="http://yoursite.com/2016/01/07/2016-01-7/index.html">
 <meta property="og:site_name" content="红色贪吃蛇">
-<meta property="og:description" content="mysql 同步， 参考文章 http://369369.blog.51cto.com/319630/790921
+<meta property="og:description" content="mysql 同步，
+参考文章 http://369369.blog.51cto.com/319630/790921
+
  两台机器不能连接，去除掉 my.cnf 里面的bind_adress
- 在主服务器上 GRANT REPLICATION SLAVE ON . to ‘mysync’@’ip’ identified by ‘passwd’;
- slava 服务器上 change master to">
-<meta property="og:updated_time" content="2016-01-07T12:12:17.066Z">
+ 在主服务器上
+GRANT REPLICATION SLAVE ON *.* to &amp;apos;mysync&amp;apos;@&amp;apos;ip&amp;apos; identified by &amp;apos;passwd&amp;ap">
+<meta property="og:updated_time" content="2016-01-08T04:42:34.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常">
-<meta name="twitter:description" content="mysql 同步， 参考文章 http://369369.blog.51cto.com/319630/790921
+<meta name="twitter:description" content="mysql 同步，
+参考文章 http://369369.blog.51cto.com/319630/790921
+
  两台机器不能连接，去除掉 my.cnf 里面的bind_adress
- 在主服务器上 GRANT REPLICATION SLAVE ON . to ‘mysync’@’ip’ identified by ‘passwd’;
- slava 服务器上 change master to">
+ 在主服务器上
+GRANT REPLICATION SLAVE ON *.* to &amp;apos;mysync&amp;apos;@&amp;apos;ip&amp;apos; identified by &amp;apos;passwd&amp;ap">
   
     <link rel="alternative" href="/atom.xml" title="红色贪吃蛇" type="application/atom+xml">
   
@@ -214,19 +220,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> mysql 同步，<br> 参考文章<br> <a href="http://369369.blog.51cto.com/319630/790921" target="_blank" rel="external">http://369369.blog.51cto.com/319630/790921</a></p>
+        <h3 id="mysql__u540C_u6B65_uFF0C"><a href="#mysql__u540C_u6B65_uFF0C" class="headerlink" title="mysql 同步，"></a>mysql 同步，</h3><blockquote>
+<p>参考文章 <a href="http://369369.blog.51cto.com/319630/790921" target="_blank" rel="external">http://369369.blog.51cto.com/319630/790921</a></p>
+</blockquote>
 <p> 两台机器不能连接，去除掉 my.cnf 里面的bind_adress</p>
-<p> 在主服务器上<br> GRANT REPLICATION SLAVE ON <em>.</em> to ‘mysync’@’ip’ identified by ‘passwd’;</p>
-<p> slava 服务器上<br> change master to master_host=’ip’,master_user=’mysync’,master_password=’pwd’, master_log_file=’mysql-bin.000001’,master_log_pos=262</p>
-<p> start slave</p>
-<p> 运行 报错</p>
-<p> IOError: [Errno 9] Bad file descriptor: ‘<stdout>‘</stdout></p>
-<p> 设置 utf8</p>
-<p> more /usr/local/pypy-2.4.0-linux64/site-packages/sitecustomize.py<br> import sys<br> sys.setdefaultencoding(“utf-8”)</p>
-<p> 使用脚本 发现</p>
-<p> source: not found<br> 原因 ubuntu 默认 sh 使用 dash ,改成 bash后解决<br>  ls -l <code>which sh</code><br> /bin/sh -&gt; dash</p>
-<p> sudo dpkg-reconfigure dash</p>
+<p> 在主服务器上</p>
+<pre><code>GRANT REPLICATION SLAVE ON *.* to &apos;mysync&apos;@&apos;ip&apos; identified by &apos;passwd&apos;;
+</code></pre><p> slava 服务器上:</p>
+<pre><code>change master to master_host=&apos;ip&apos;,master_user=&apos;mysync&apos;,master_password=&apos;pwd&apos;, master_log_file=&apos;mysql-bin.000001&apos;,master_log_pos=262
 
+start slave
+</code></pre><hr>
+<h3 id="u8FD0_u884C__u62A5_u9519"><a href="#u8FD0_u884C__u62A5_u9519" class="headerlink" title="运行 报错"></a>运行 报错</h3><pre><code>IOError: [Errno 9] Bad file descriptor: &apos;&lt;stdout&gt;&apos;
+</code></pre><p> 设置 utf8</p>
+<pre><code>more /usr/local/pypy-2.4.0-linux64/site-packages/sitecustomize.py
+import sys
+sys.setdefaultencoding(&quot;utf-8&quot;)
+</code></pre><p> 使用脚本 发现</p>
+<pre><code>source: not found
+</code></pre><p> 原因 ubuntu 默认 sh 使用 dash ,改成 bash后解决<br>    ls -l <code>which sh</code><br>    /bin/sh -&gt; dash</p>
+<pre><code>sudo dpkg-reconfigure dash
+</code></pre>
       
     </div>
     
