@@ -22,7 +22,7 @@ GRANT REPLICATION SLAVE ON *.* to &amp;apos;mysync&amp;apos;@&amp;apos;ip&amp;ap
  两台机器不能连接，去除掉 my.cnf 里面的bind_adress
  在主服务器上
 GRANT REPLICATION SLAVE ON *.* to &amp;apos;mysync&amp;apos;@&amp;apos;ip&amp;apos; identified by &amp;apos;passwd&amp;ap">
-<meta property="og:updated_time" content="2016-01-08T04:44:41.893Z">
+<meta property="og:updated_time" content="2016-01-08T05:21:18.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常">
 <meta name="twitter:description" content="mysql 同步，
@@ -230,13 +230,10 @@ GRANT REPLICATION SLAVE ON *.* to &amp;apos;mysync&amp;apos;@&amp;apos;ip&amp;ap
 <p> 两台机器不能连接，去除掉 my.cnf 里面的bind_adress</p>
 <p> 在主服务器上</p>
 <pre><code>GRANT REPLICATION SLAVE ON *.* to &apos;mysync&apos;@&apos;ip&apos; identified by &apos;passwd&apos;;
-</code></pre><p> slava 服务器上:</p>
-<pre><code>change master to master_host=&apos;ip&apos;,master_user=&apos;mysync&apos;,master_password=&apos;pwd&apos;, master_log_file=&apos;mysql-bin.000001&apos;,master_log_pos=262
-
-start slave
-</code></pre><hr>
-<h3 id="u8FD0_u884C__u62A5_u9519"><a href="#u8FD0_u884C__u62A5_u9519" class="headerlink" title="运行 报错"></a>运行 报错</h3><pre><code>IOError: [Errno 9] Bad file descriptor: &apos;&lt;stdout&gt;&apos;
-</code></pre><p> 设置 utf8</p>
+</code></pre><p> slava 服务器上:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">change master to master_host=<span class="string">'ip'</span>,master_user=<span class="string">'mysync'</span>,master_password=<span class="string">'pwd'</span>, master_<span class="built_in">log</span>_file=<span class="string">'mysql-bin.000001'</span>,master_<span class="built_in">log</span>_pos=<span class="number">262</span></span><br><span class="line"></span><br><span class="line">    start slave</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="u8FD0_u884C__u62A5_u9519"><a href="#u8FD0_u884C__u62A5_u9519" class="headerlink" title="运行 报错"></a>运行 报错</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IOError: [Errno <span class="number">9</span>] Bad file descriptor: <span class="string">'&lt;stdout&gt;'</span></span><br></pre></td></tr></table></figure>
+<p> 设置 utf8</p>
 <pre><code>more /usr/local/pypy-2.4.0-linux64/site-packages/sitecustomize.py
 import sys
 sys.setdefaultencoding(&quot;utf-8&quot;)
