@@ -22,7 +22,7 @@ GRANT REPLICATION SLAVE ON *.* to &amp;apos;mysync&amp;apos;@&amp;apos;ip&amp;ap
  两台机器不能连接，去除掉 my.cnf 里面的bind_adress
  在主服务器上
 GRANT REPLICATION SLAVE ON *.* to &amp;apos;mysync&amp;apos;@&amp;apos;ip&amp;apos; identified by &amp;apos;passwd&amp;ap">
-<meta property="og:updated_time" content="2016-01-08T05:21:18.334Z">
+<meta property="og:updated_time" content="2016-01-08T05:23:36.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常">
 <meta name="twitter:description" content="mysql 同步，
@@ -234,17 +234,12 @@ GRANT REPLICATION SLAVE ON *.* to &amp;apos;mysync&amp;apos;@&amp;apos;ip&amp;ap
 <hr>
 <h3 id="u8FD0_u884C__u62A5_u9519"><a href="#u8FD0_u884C__u62A5_u9519" class="headerlink" title="运行 报错"></a>运行 报错</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IOError: [Errno <span class="number">9</span>] Bad file descriptor: <span class="string">'&lt;stdout&gt;'</span></span><br></pre></td></tr></table></figure>
 <p> 设置 utf8</p>
-<pre><code>more /usr/local/pypy-2.4.0-linux64/site-packages/sitecustomize.py
-import sys
-sys.setdefaultencoding(&quot;utf-8&quot;)
-</code></pre><p> 使用脚本 发现</p>
-<pre><code>source: not found
-</code></pre><p> 原因 ubuntu 默认 sh 使用 dash ,改成 bash后解决</p>
-<pre><code>ls -l `which sh`
-/bin/sh -&gt; dash
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">more /usr/<span class="built_in">local</span>/pypy-<span class="number">2.4</span>.<span class="number">0</span>-linux64/site-packages/sitecustomize.py</span><br><span class="line">import sys</span><br><span class="line">sys.setdefaultencoding(<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
+<p> 使用脚本 发现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span>: not found</span><br></pre></td></tr></table></figure>
+<p> 原因 ubuntu 默认 sh 使用 dash ,改成 bash后解决</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls <span class="operator">-l</span> `<span class="built_in">which</span> sh`</span><br><span class="line">/bin/sh -&gt; dash</span><br><span class="line"></span><br><span class="line">sudo dpkg-reconfigure dash</span><br></pre></td></tr></table></figure>
 
-sudo dpkg-reconfigure dash
-</code></pre>
       
     </div>
     
