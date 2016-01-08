@@ -217,8 +217,11 @@ import sys
 sys.setdefaultencoding(&quot;utf-8&quot;)
 </code></pre><p> 使用脚本 发现</p>
 <pre><code>source: not found
-</code></pre><p> 原因 ubuntu 默认 sh 使用 dash ,改成 bash后解决<br>    ls -l <code>which sh</code><br>    /bin/sh -&gt; dash</p>
-<pre><code>sudo dpkg-reconfigure dash
+</code></pre><p> 原因 ubuntu 默认 sh 使用 dash ,改成 bash后解决</p>
+<pre><code>ls -l `which sh`
+/bin/sh -&gt; dash
+
+sudo dpkg-reconfigure dash
 </code></pre>
       
     </div>

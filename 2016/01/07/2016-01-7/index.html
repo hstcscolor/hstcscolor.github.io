@@ -22,7 +22,7 @@ GRANT REPLICATION SLAVE ON *.* to &amp;apos;mysync&amp;apos;@&amp;apos;ip&amp;ap
  两台机器不能连接，去除掉 my.cnf 里面的bind_adress
  在主服务器上
 GRANT REPLICATION SLAVE ON *.* to &amp;apos;mysync&amp;apos;@&amp;apos;ip&amp;apos; identified by &amp;apos;passwd&amp;ap">
-<meta property="og:updated_time" content="2016-01-08T04:42:34.693Z">
+<meta property="og:updated_time" content="2016-01-08T04:44:41.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常">
 <meta name="twitter:description" content="mysql 同步，
@@ -238,8 +238,11 @@ import sys
 sys.setdefaultencoding(&quot;utf-8&quot;)
 </code></pre><p> 使用脚本 发现</p>
 <pre><code>source: not found
-</code></pre><p> 原因 ubuntu 默认 sh 使用 dash ,改成 bash后解决<br>    ls -l <code>which sh</code><br>    /bin/sh -&gt; dash</p>
-<pre><code>sudo dpkg-reconfigure dash
+</code></pre><p> 原因 ubuntu 默认 sh 使用 dash ,改成 bash后解决</p>
+<pre><code>ls -l `which sh`
+/bin/sh -&gt; dash
+
+sudo dpkg-reconfigure dash
 </code></pre>
       
     </div>
